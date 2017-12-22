@@ -8,7 +8,7 @@ CREATE SCHEMA MATERIAL;
 USE MATERIAL;
 
 CREATE TABLE usuaris
-(codi VARCHAR(10) AUTO_INCREMENT,
+(codi INT(10) AUTO_INCREMENT,
 nom CHAR(30),
 contrasenya BLOB, /*https://zinoui.com/blog/storing-passwords-securely*/ 
 email VARCHAR(20),
@@ -18,7 +18,7 @@ CONSTRAINT PK_usuaris PRIMARY KEY(codi)
 );
 
 CREATE TABLE stock
-(codi VARCHAR(10) AUTO_INCREMENT,
+(codi INT(10) AUTO_INCREMENT,
 nom VARCHAR(30),
 quantitat_inicial FLOAT,
 quantitat_actual FLOAT,
@@ -32,7 +32,7 @@ CONSTRAINT PK_stock PRIMARY KEY(codi)
 );
 
 CREATE TABLE moviments
-(codi VARCHAR(10) AUTO_INCREMENT,
+(codi INT(10) AUTO_INCREMENT,
 producte VARCHAR(10),
 canvi_stock FLOAT,
 usuari VARCHAR(10),
