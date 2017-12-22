@@ -33,9 +33,9 @@ CONSTRAINT PK_stock PRIMARY KEY(codi)
 
 CREATE TABLE moviments
 (codi INT(10) AUTO_INCREMENT,
-producte VARCHAR(10),
+producte INT(10),
 canvi_stock FLOAT,
-usuari VARCHAR(10),
+usuari INT(10),
 dia_moviment DATE,
 CONSTRAINT U_moviments UNIQUE(codi),
 CONSTRAINT PK_moviments PRIMARY KEY(codi),
