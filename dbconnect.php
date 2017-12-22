@@ -16,6 +16,6 @@
 	}
 	else {
 		echo "<b>Connexió a la BD  $baseDades realitzada amb èxit</b><br><br>";
-	}
-
+    }
+    $_SESSION['mysqli']=$mysqli;
 ?>

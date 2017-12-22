@@ -1,12 +1,16 @@
 <?php
 /*
-    include_once('utility.php');
+    
     include_once('inici_partida.php');
     include_once('Persona.php');
     include_once('Jugador.php');
 */
-include_once('dbconnect.php');
-    session_start();
+$lifetime=-1;
+  session_set_cookie_params($lifetime);
+session_start();
+    include_once('dbconnect.php');
+    include_once('utility.php');
+
 
     
     $consulta = 'SELECT * FROM usuaris';
@@ -22,27 +26,29 @@ include_once('dbconnect.php');
 	}
 	echo "</table>\n";
 	echo "<br><b>Total registres:</b> " .$resultat->num_rows;
-/*
-    $lbErrorVermell="";
+
     if(isset($_SESSION['usuari'])){
-        pagina_partida();
+        
+        /* AQUI HEM DE POSAR QUE VAGI A LA PAGINA DELS MATERIALS JA 
+        pagina_materials();
+        */
+        pagina_login();
     }else{
         if(isset($_POST["submitb"])) {
             if(empty($_POST["username"]) || empty($_POST["pass"])){
-                $lbErrorVermell = "Camps buits";
+                echo "Camps buits";
             }else{
                 if (isset($_POST["username"]) && (isset($_POST["pass"]))) {
-                    if(gestioDades::comprobaDades(($_POST["username"]),($_POST["pass"]))){
+                    if(utility::comprobaDades(($_POST["username"]),($_POST["pass"]))){
                         $_SESSION['usuari']=$_POST["username"];
-                        if(($_SESSION['usuari']=="admin@admin")&& ($_POST["pass"] == "111111")){
-                            $jugador = new Administrador($_POST["username"],0,$_POST["pass"]);
-                        }else{
-                            $jugador = new Jugador($_SESSION['usuari'],0,$_POST["pass"]);
-                        }
-                        $_SESSION['jugador']=$jugador;
-                        pagina_partida();
+
+                        echo "Login correcte";
+                        //pagina_partida();
                     }else{
-                        pagina_login();
+                        echo $_POST["username"];
+                        echo $_POST["pass"];
+                        echo "Login incorrecte";
+                        //pagina_login();
                     }
                 }
             }
@@ -52,7 +58,7 @@ include_once('dbconnect.php');
     }
 
 function pagina_login(){
-$lbErrorVermell="";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,27 +70,19 @@ $lbErrorVermell="";
     <body>
         <form name="form_login" action="" method="POST">    
                 <div class="c1">
-                <span class="c2">El penjat</span>
+                <span class="c2">Log in</span>
                     <font face="Arial">
                         Nom d'usuari (e-mail):
-                        <input class="camps" type="email" name="username"><br>
+                        <input class="camps" type="text" name="username"><br>
                         Contrasenya:
-                        <input class="camps" type="password" name="pass" pattern="[A-Za-z0-9]{6}"><br>
+                        <input class="camps" type="password" name="pass" pattern="[A-Za-z0-9]{5}"><br>
                         <input class="bt" type="submit" name="submitb" value="Login / Registra'm"/><input class="bt" type="reset" value="Esborra"/>
-                        <p> <?php echo $lbErrorVermell ?></p>
                     </font>
                 </div>
         </form>
-        <img id="imgCenter" src="media/captura.PNG"/>
-        <div class="info">
-            El penjat és un joc de paraules per a dues persones o més. L'objectiu és tractar d'endevinar el mot que es pensa un dels participants. Com a pista es col·loca el nombre de lletres. Per torn, es van dient lletres. Si són al mot secret, s'escriuen al seu lloc i si no, s'afegeix un traç al dibuix del penjat. Finalitza el joc quan la persona es penja i s'acaba el dibuix abans d'endevinar la paraula secreta.
-        </div>
-    <?php
-        echo gestioDades::sortArray();
-    ?>
     </body>
 </html>
 <?php
 }
-*/
+
 ?>
