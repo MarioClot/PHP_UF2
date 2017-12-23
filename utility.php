@@ -34,10 +34,9 @@ Class utility{
         $consulta = "SELECT codi FROM usuaris WHERE nom = '$myusername' and contrasenya = '$mypassword'";
         $resultat = $mysqli->query($consulta) or die('Consulta fallida: ' . $mysqli->errno . $mysqli->error);
         $row = mysqli_fetch_array($resultat,MYSQLI_ASSOC);
-        $active = $row['active'];
-        
-        $count = mysqli_num_rows($resultat);
-        
+        //$active = $row['active'];
+
+        $count = $resultat->num_rows;
         // If result matched $myusername and $mypassword, table row must be 1 row
             
         if($count == 1) {

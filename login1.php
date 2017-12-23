@@ -11,7 +11,10 @@ session_start();
     include_once('dbconnect.php');
     include_once('utility.php');
 
-
+    if(isset($_POST["btSurt"])){
+        session_destroy();
+        Header('Location: '.$_SERVER['PHP_SELF']);
+    }
     
     $consulta = 'SELECT * FROM usuaris';
 	$resultat = $mysqli->query($consulta) or die('Consulta fallida: ' . $mysqli->errno . $mysqli->error);
@@ -77,6 +80,7 @@ function pagina_login(){
                         Contrasenya:
                         <input class="camps" type="password" name="pass" pattern="[A-Za-z0-9]{5}"><br>
                         <input class="bt" type="submit" name="submitb" value="Login / Registra'm"/><input class="bt" type="reset" value="Esborra"/>
+                        <input class="bt" type="submit" name="btSurt" value="Surt"/>
                     </font>
                 </div>
         </form>
