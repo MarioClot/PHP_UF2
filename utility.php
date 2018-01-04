@@ -2,27 +2,6 @@
 
 include_once('dbconnect.php');
 include_once('login1.php');
-/*
-//function login($user,$passw){
-    $myusername = 'Carlos';
-    $mypassword = 'hola1';
-    $consulta = "SELECT codi FROM usuaris WHERE nom = '$myusername' and contrasenya = '$mypassword'";
-    $resultat = $mysqli->query($consulta) or die('ConsultaU fallida: ' . $mysqli->errno . $mysqli->error);
-    $row = mysqli_fetch_array($resultat,MYSQLI_ASSOC);
-    $active = $row['active'];
-
-    $count = mysqli_num_rows($resultat);
-
-    // If result matched $myusername and $mypassword, table row must be 1 row
-        
-    if($count == 1) {
-        $_SESSION['usuari'] = $myusername;
-        
-        header("location: welcome.php");
-    }else {
-        $error = "Nom o password invalids";
-    }
-//}*/
 
 Class utility{
 
@@ -42,12 +21,41 @@ Class utility{
         if($count == 1) {
             $_SESSION['usuari'] = $myusername;
             return true;
-            header("location: welcome.php");
+            //header("location: welcome.php");
+            header("location: pagina_material.php");
         }else {
             $error = "Nom o password invalids";
             return false;
         }
     
+    }
+
+    //funcio sense comprobar si funciona o no
+    public static function create_user($user,$passw,$email){
+        $mysqli = $_SESSION['mysqli'];
+        // mirar si l'usuari existeix mitjançant el email
+        if(exists_user($email)){
+            echo "L'usuari ja existeix";
+        }else{
+            $consulta = "INSERT INTO usuaris (nom,contrasenya,email) VALUES ('$user','$passw','$email')";
+
+        }
+    }
+
+        //funcio sense comprobar si funciona o no
+    public static function exists_user($email){
+        $mysqli = $_SESSION['mysqli'];
+        $consulta = "SELECT email FROM usuaris WHERE email = '$email'";
+        $resultat = $mysqli->query($consulta) or die('Consulta fallida: ' . $mysqli->errno . $mysqli->error);
+        $row = mysqli_fetch_array($resultat,MYSQLI_ASSOC);
+        $count = $resultat->num_rows;
+        // If result matched $myusername and $mypassword, table row must be 1 row
+            
+        if($count == 1) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public static function comparable($arg1,$arg2){

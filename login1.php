@@ -1,15 +1,11 @@
 <?php
-/*
-    
-    include_once('inici_partida.php');
-    include_once('Persona.php');
-    include_once('Jugador.php');
-*/
+
 $lifetime=-1;
   session_set_cookie_params($lifetime);
 session_start();
     include_once('dbconnect.php');
     include_once('utility.php');
+    include_once('pagina_material.php');
 
     if(isset($_POST["btSurt"])){
         session_destroy();
@@ -32,10 +28,10 @@ session_start();
 
     if(isset($_SESSION['usuari'])){
         
-        /* AQUI HEM DE POSAR QUE VAGI A LA PAGINA DELS MATERIALS JA 
+        // AQUI HEM DE POSAR QUE VAGI A LA PAGINA DELS MATERIALS JA 
         pagina_materials();
-        */
-        pagina_login();
+        
+        //pagina_login();
     }else{
         if(isset($_POST["submitb"])) {
             if(empty($_POST["username"]) || empty($_POST["pass"])){
@@ -46,12 +42,13 @@ session_start();
                         $_SESSION['usuari']=$_POST["username"];
 
                         echo "Login correcte";
+                        pagina_materials();
                         //pagina_partida();
                     }else{
                         echo $_POST["username"];
                         echo $_POST["pass"];
                         echo "Login incorrecte";
-                        //pagina_login();
+                        pagina_login();
                     }
                 }
             }
