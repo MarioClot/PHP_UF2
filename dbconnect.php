@@ -5,6 +5,8 @@
     include_once('Persona.php');
     include_once('Jugador.php');
 */
+
+/*   MYSQLi
 	$dbhost='localhost';
 	$dbusername='root';
 	$dbuserpassword='';
@@ -17,5 +19,20 @@
 	else {
 		echo "<b>Connexió a la BD  $baseDades realitzada amb èxit</b><br><br>";
     }
-    $_SESSION['mysqli']=$mysqli;
+	$_SESSION['mysqli']=$mysqli;
+	
+	*/
+	$dbhost='localhost';
+	$dbusername='root';
+	$dbuserpassword='';
+	$baseDades='material'; 
+	try{
+		$pdo = new PDO("mysql:host=$dbhost;dbname=$baseDades",$dbusername,$dbuserpassword);
+		echo "Connecio a la BD $baseDades realitzada amb exit";
+		$_SESSION['pdo']=$pdo;
+
+	} catch(PDOException $e){
+		print "Error. ".$e->getMessage()."<br>";
+		die();
+	}
 ?>

@@ -11,7 +11,15 @@ session_start();
         session_destroy();
         Header('Location: '.$_SERVER['PHP_SELF']);
     }
-    
+
+    if(isset($_POST["btRegistra"])){
+        if(empty($_POST["username"]) || empty($_POST["pass"]) || empty($_POST["email"])){
+            echo "Camps buits";
+        }else{
+            utility::create_user($_POST["username"],$_POST["pass"],$_POST["email"]);
+        }
+    }
+    /*
     $consulta = 'SELECT * FROM usuaris';
 	$resultat = $mysqli->query($consulta) or die('Consulta fallida: ' . $mysqli->errno . $mysqli->error);
 	echo "<b>Entrades de la base de dades: </b>";
@@ -25,7 +33,7 @@ session_start();
 	}
 	echo "</table>\n";
 	echo "<br><b>Total registres:</b> " .$resultat->num_rows;
-
+*/
     if(isset($_SESSION['usuari'])){
         
         // AQUI HEM DE POSAR QUE VAGI A LA PAGINA DELS MATERIALS JA 
@@ -72,11 +80,14 @@ function pagina_login(){
                 <div class="c1">
                 <span class="c2">Log in</span>
                     <font face="Arial">
-                        Nom d'usuari (e-mail):
+                        Nom d'usuari:
                         <input class="camps" type="text" name="username"><br>
                         Contrasenya:
                         <input class="camps" type="password" name="pass" pattern="[A-Za-z0-9]{5}"><br>
+                        E-mail:
+                        <input class="camps" type="text" name="email"><br>
                         <input class="bt" type="submit" name="submitb" value="Login / Registra'm"/><input class="bt" type="reset" value="Esborra"/>
+                        <input class="bt" type="submit" name="btRegistra" value="Registra'm"/><input class="bt" type="reset" value="Esborra"/>
                         <input class="bt" type="submit" name="btSurt" value="Surt"/>
                     </font>
                 </div>

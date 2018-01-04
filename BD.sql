@@ -10,7 +10,7 @@ USE MATERIAL;
 CREATE TABLE usuaris
 (codi INT(10) AUTO_INCREMENT,
 nom CHAR(30),
-contrasenya BLOB, /*https://zinoui.com/blog/storing-passwords-securely*/ 
+contrasenya BLOB, /*https://zinoui.com/blog/storing-passwords-securely */ 
 email VARCHAR(20),
 ROL ENUM('admin','professor','alumne') DEFAULT 'alumne',
 CONSTRAINT U_usuaris UNIQUE(codi), 
