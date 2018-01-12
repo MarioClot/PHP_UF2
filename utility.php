@@ -1,6 +1,6 @@
 <?php
 
-include_once('dbconnect.php');
+//include_once('dbconnect.php');
 include_once('login1.php');
 
 Class utility{
@@ -28,8 +28,13 @@ Class utility{
             return false;
         }
         */
+        $dbhost='localhost';
+	    $dbusername='root';
+	    $dbuserpassword='';
+        $baseDades='material'; 
+    
         try{
-            $pdo = $_SESSION['pdo'];
+            $pdo = new PDO("mysql:host=$dbhost;dbname=$baseDades",$dbusername,$dbuserpassword);
             $consulta = "SELECT COUNT(*) FROM usuaris WHERE nom = '$user' and AES_DECRYPT(contrasenya,'php') = '$passw'";
             $resultat = $pdo->query($consulta) or die('Consulta fallida.');
             if($resultat->fetchColumn() == 1){
@@ -48,8 +53,12 @@ Class utility{
 
     //funcio sense comprobar si funciona o no
     public static function create_user($user,$passw,$email){
+        $dbhost='localhost';
+	    $dbusername='root';
+	    $dbuserpassword='';
+	    $baseDades='material'; 
         try{
-            $pdo = $_SESSION['pdo'];
+            $pdo = new PDO("mysql:host=$dbhost;dbname=$baseDades",$dbusername,$dbuserpassword);
             //$mysqli = $_SESSION['mysqli'];
             // mirar si l'usuari existeix mitjançant el email
             if(utility::exists_user($email)){
@@ -74,8 +83,12 @@ Class utility{
 
         //funcio sense comprobar si funciona o no
     public static function exists_user($email){
+        $dbhost='localhost';
+	    $dbusername='root';
+	    $dbuserpassword='';
+	    $baseDades='material'; 
         try{
-            $pdo = $_SESSION['pdo'];
+            $pdo = new PDO("mysql:host=$dbhost;dbname=$baseDades",$dbusername,$dbuserpassword);
             //$mysqli = $_SESSION['mysqli'];
             $consulta = "SELECT COUNT(*) FROM usuaris WHERE email = '$email'";
             $resultat = $pdo->query($consulta) or die('Consulta fallida.');

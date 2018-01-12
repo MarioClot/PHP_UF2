@@ -3,7 +3,7 @@
 $lifetime=-1;
   session_set_cookie_params($lifetime);
 session_start();
-    include_once('dbconnect.php');
+    //include_once('dbconnect.php');
     include_once('utility.php');
     include_once('pagina_material.php');
 

@@ -29,7 +29,6 @@
 	try{
 		$pdo = new PDO("mysql:host=$dbhost;dbname=$baseDades",$dbusername,$dbuserpassword);
 		echo "Connecio a la BD $baseDades realitzada amb exit";
-		$_SESSION['pdo']=$pdo;
 
 	} catch(PDOException $e){
 		print "Error. ".$e->getMessage()."<br>";
