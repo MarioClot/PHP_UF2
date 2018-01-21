@@ -14,26 +14,28 @@
                         </div>
                     @endif
                     <div class="botons">
-                        <div class="contenidor_menu">
-                            <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
-                            <span>LAB 406</span>
-                        </div>
-                        <div class="contenidor_menu">
+                        <a href="{{ url('lab_406') }}">
+                            <button class="contenidor_menu">
+                                <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
+                                <span>LAB 406</span>
+                            </button>
+                        </a>
+                        <button class="contenidor_menu">
                             <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
                             <span>LAB 407</span>
-                        </div>
-                        <div class="contenidor_menu">
+                        </button>
+                        <button class="contenidor_menu">
                             <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
                             <span>REACTIUS LAB 406</span>
-                        </div>
-                        <div class="contenidor_menu">
+                        </button>
+                        <button class="contenidor_menu">
                             <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
-                            <span>MAGATZEM SANITAT hghf</span>
-                        </div>
-                        <div class="contenidor_menu">
+                            <span>MAGATZEM SANITAT</span>
+                        </button>
+                        <button class="contenidor_menu">
                             <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
                             <span>Pene4</span>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

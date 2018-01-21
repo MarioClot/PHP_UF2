@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/lab_406','QueryController@material_lab_406')->name('lab_406');
+//Route::get('/lab_406',function(){
+    //$material = \App\Http\Controllers\QueryController::call('QueryController@material_lab_406')->content;
+   //return view ('lab_406')->with('material',$material);
+//});
