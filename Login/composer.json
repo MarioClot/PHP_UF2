@@ -19,7 +19,7 @@
     },
     "autoload": {
         "classmap": [
-            "app/database/migrations",
+            "database/migrations",
             "database/seeds",
             "database/factories"
         ],
