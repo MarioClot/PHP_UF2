@@ -32,10 +32,14 @@
                             <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
                             <span>MAGATZEM SANITAT</span>
                         </button>
-                        <button class="contenidor_menu">
-                            <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
-                            <span>Pene4</span>
-                        </button>
+                        @if (Auth::user()->getRol()=='professor')
+                            <a href="{{ url('/registre') }}">
+                                <button class="contenidor_menu">
+                                    <img style="padding-top: 5%" class="img_boto" src="{{asset('assets/images/users.svg')}}">
+                                    <span>USUARIS</span>
+                                </button>
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>
