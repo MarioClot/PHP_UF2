@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\User;
 use Illuminate\Support\Facades\DB;
 
@@ -28,13 +27,8 @@ class UserController extends Controller
         $usuari->rol = $request->rol;
 
         $usuari->save();
-        return redirect('/');
+        return redirect('/home');
     }
-
-    public function read(){
-        $user = User::all();
-    }
-
 
     public function update(Request $request,$id){
         $users = User::all();
@@ -46,7 +40,7 @@ class UserController extends Controller
         $usuari->rol = $request->rol;
 
         $usuari->save();
-        return redirect('/');
+        return redirect('/home');
     }
 
     public function delete($id){

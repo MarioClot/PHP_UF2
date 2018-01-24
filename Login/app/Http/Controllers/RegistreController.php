@@ -16,7 +16,7 @@ class RegistreController extends Controller
 
     public function create()
     {
-        $usuaris = DB::table('users')->get();
+        $usuaris = User::all();
         return view('layouts.registre.create',['usuaris' => $usuaris]);
     }
 
