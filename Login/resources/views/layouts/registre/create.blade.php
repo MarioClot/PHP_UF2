@@ -1,11 +1,11 @@
 @extends('layouts.app')
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Register</div>
+                    <div class="panel-heading">Registra</div>
 
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="/registre">
@@ -81,11 +81,56 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Register
+                                        Registra
                                     </button>
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Llistat d'usuaris</div>
+
+                    <div class="panel-body">
+                        <table class="table-striped table-hover">
+                            <tr>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                                <th>Esborrar</th>
+                            </tr>
+
+                            @foreach($usuaris as $user)
+
+                                <tr>
+                                    <td>
+                                        {{$user->name}}
+                                    </td>
+                                    <td>
+                                        {{$user->email}}
+                                    </td>
+                                    <td>
+                                        {{$user->rol}}
+                                    </td>
+                                    <td>
+                                    {{ Form::open(array('url' => 'delete/' . $user->id, 'class' => 'pull-right')) }}
+                                        {{ csrf_field() }}
+                                        {{ Form::hidden('_method', 'DELETE') }}
+                                        {{ Form::submit('Esborra aquest usuari', array('class' => 'btn')) }}
+                                    {{ Form::close() }}
+                                    </td>
+                                </tr>
+
+                            @endforeach
+
+                        </table>
+
                     </div>
                 </div>
             </div>

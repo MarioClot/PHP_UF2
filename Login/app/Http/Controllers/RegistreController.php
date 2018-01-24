@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class RegistreController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function create()
     {
-        return view('layouts.registre.create');
+        $usuaris = DB::table('users')->get();
+        return view('layouts.registre.create',['usuaris' => $usuaris]);
     }
 
     public function store()

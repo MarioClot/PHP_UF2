@@ -23,4 +23,5 @@ class QueryController extends Controller
         $columnes = DB::getSchemaBuilder()->getColumnListing('lab406');
         return view('lab_406', ['material' => $material,'columnes' => $columnes]);
     }
+
 }
