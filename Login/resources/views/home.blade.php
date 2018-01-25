@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     <div class="botons">
-                        <a href="{{ url('lab_406') }}">
+                        <a href="{{ url('/lab_406') }}">
                             <button class="contenidor_menu">
                                 <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
                                 <span>LAB 406</span>
