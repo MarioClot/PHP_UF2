@@ -145,7 +145,6 @@
                         @endif
                         <table class="table-striped table-hover">
                                 <tr>
-                                    <th>ID</th>
                                     <th>Localitzacio</th>
                                     <th>Nom</th>
                                     <th>Quantitat inicial</th>
@@ -162,9 +161,6 @@
                                 @else
                                     <tr>
                                 @endif
-                                    <td>
-                                        {{$item->id}}
-                                    </td>
                                     <td>
                                         {{$item->localitzacio}}
                                     </td>

@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database;
 
 class Handler extends ExceptionHandler
 {
@@ -48,6 +49,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof \Illuminate\Database\QueryException) {
+            $data = "Error de la base de dades";
+            return response()->view('error', [$data]);
+        }
         return parent::render($request, $exception);
     }
 }
