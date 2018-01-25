@@ -22,7 +22,7 @@ class Registre406Controller extends Controller
 
     public function create()
     {
-        $productes = DB::table('lab406')->get();
+        $productes = DB::table('lab406s')->get();
         return view('layouts.lab_406.create',['productes' => $productes]);
     }
 
@@ -39,7 +39,7 @@ class Registre406Controller extends Controller
             'n_lot' => 'required'
         ]);
 
-        $lab406 = Registre406Controller::create(request(['localitzacio','nom','quantitat_inicial','quantitat_actual', 'proveidor','referencia_proveidor', 'marca_equip', 'n_lot']));
+        $lab406 = Lab406::create(request(['localitzacio','nom','quantitat_inicial','quantitat_actual', 'proveidor','referencia_proveidor', 'marca_equip', 'n_lot']));
 
         //auth()->login($user);
 

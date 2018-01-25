@@ -19,8 +19,8 @@ class QueryController extends Controller
     }
     public function material_lab_406()
     {
-        $material = DB::table('lab406')->get();
-        $columnes = DB::getSchemaBuilder()->getColumnListing('lab406');
+        $material = DB::table('lab406s')->get();
+        $columnes = DB::getSchemaBuilder()->getColumnListing('lab406s');
         return view('lab_406', ['material' => $material,'columnes' => $columnes]);
     }
 

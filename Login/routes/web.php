@@ -24,7 +24,9 @@ Route::get('/lab_406','QueryController@material_lab_406')->name('lab_406');
 Route::get('/registre', 'RegistreController@create');
 Route::post('registre', 'RegistreController@store');
 
-Route::delete('/delete/{id}','UserController@delete');
+Route::delete('/deleteuser/{id}','UserController@delete');
+
+Route::delete('/deleteprod/{id}','Lab406Controller@delete');
 
 Route::get('/lab_406', 'Registre406Controller@create');
 Route::post('lab_406', 'Registre406Controller@store');

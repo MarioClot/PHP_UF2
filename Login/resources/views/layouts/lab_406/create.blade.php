@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Registra producte</div>
+                    <div class="panel-heading">Laboratori 406</div>
 
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="/lab_406">
@@ -156,7 +156,12 @@
                                     <th>Nº lot</th>
                                 </tr>
                             @foreach($productes as $item)
-                                <tr>
+                                <!--?php dump($item->quantitat_actual*100/$item->quantitat_inicial<($item->percentatge_minim)) ?-->
+                                @if (($item->quantitat_actual*100/$item->quantitat_inicial)<($item->percentatge_minim))
+                                    <tr style="background-color: #F2DEDE">
+                                @else
+                                    <tr>
+                                @endif
                                     <td>
                                         {{$item->id}}
                                     </td>
@@ -184,6 +189,15 @@
                                     <td>
                                         {{$item->n_lot}}
                                     </td>
+                                    @if (Auth::user()->getRol()=='professor')
+                                    <td>
+                                        {{ Form::open(array('url' => 'deleteprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ csrf_field() }}
+                                            {{ Form::hidden('_method', 'DELETE') }}
+                                            {{ Form::submit('Elimina', array('class' => 'btn')) }}
+                                        {{ Form::close() }}
+                                    </td>
+                                    @endif
                                 </tr>
                             @endforeach
                         </table>
