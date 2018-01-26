@@ -82,8 +82,8 @@
         <div class="title m-b-md">
             Labb
         </div>
-        <img src="{{asset('qrcode1.png')}}">
-        {{$data}}
+
+        {{$text}}
 
     </div>
 </div>

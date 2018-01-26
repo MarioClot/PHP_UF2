@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use Endroid\QrCode\QrCode;
 
 class QRController extends Controller
 {
@@ -18,18 +19,14 @@ class QRController extends Controller
 
     public function create()
     {
-        $renderer = new \BaconQrCode\Renderer\Image\Png();
-        $renderer->setHeight(256);
-        $renderer->setWidth(256);
-        $writer = new \BaconQrCode\Writer($renderer);
-        $writer->writeFile('Que pasa tiu', 'qrcode1.png');
-        return view('layouts.qr.exemple');
+        $qrCode = new QrCode('Life is too short to be generating QR codes');
+        return view('layouts.qr.exemple',['qrCode'=>$qrCode]);
     }
 
     public function decode(){
-        $QRCodeReader = new Libern\QRCodeReader\QRCodeReader();
-        $qrcode_text = $QRCodeReader->decode("/qrcode1.png");
-        return view('layouts.qr.decode',['data'=> $qrcode_text]);
+        $qrcode = new \QrReader('qrcode2.png');
+        $text = $qrcode->text();
+        return view('layouts.qr.decode',['text'=>$text]);
     }
 
     public function vista(){

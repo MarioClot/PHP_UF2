@@ -11,7 +11,8 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.*",
-        "libern/qr-code-reader": "^1.0"
+        "endroid/qr-code": "^3.2",
+        "khanamiryan/qrcode-detector-decoder": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

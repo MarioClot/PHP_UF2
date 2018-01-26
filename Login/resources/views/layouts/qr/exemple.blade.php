@@ -82,7 +82,8 @@
         <div class="title m-b-md">
             Labb
         </div>
-        <img src="{{asset('qrcode.png')}}">
+        <?php echo $qrCode->writeFile('qrcode2.png'); ?>
+        <!--img src="{{asset('qrcode.png')}}"-->
         <a href="{{ route('provaqr') }}">QR</a>
 
     </div>
