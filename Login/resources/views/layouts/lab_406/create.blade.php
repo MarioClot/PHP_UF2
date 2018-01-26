@@ -43,7 +43,7 @@
                                 <label for="quantitat_inicial" class="col-md-4 control-label">Quantitat inicial</label>
 
                                 <div class="col-md-6">
-                                    <input id="quantitat_inicial" type="text" class="form-control" name="quantitat_inicial" value="{{ old('quantitat_inicial') }}" required>
+                                    <input id="quantitat_inicial" type="number" class="form-control" name="quantitat_inicial" value="{{ old('quantitat_inicial') }}" required>
 
                                     @if ($errors->has('quantitat_inicial'))
                                         <span class="help-block">
@@ -57,7 +57,7 @@
                                 <label for="quantitat_actual" class="col-md-4 control-label">Quantitat actual</label>
 
                                 <div class="col-md-6">
-                                <input id="quantitat_actual" type="text" class="form-control" name="quantitat_actual" value="{{ old('quantitat_actual') }}" required>
+                                <input id="quantitat_actual" type="number" class="form-control" name="quantitat_actual" value="{{ old('quantitat_actual') }}" required>
                                     @if ($errors->has('quantitat_actual'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('quantitat_actual') }}</strong>
@@ -187,10 +187,17 @@
                                     </td>
                                     @if (Auth::user()->getRol()=='professor')
                                     <td>
+                                        {{ Form::open(array('url' => 'editprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ csrf_field() }}
+                                        {{ Form::hidden('_method', 'GET') }}
+                                        {{ Form::submit('Edita', array('class' => 'btn btn-primary')) }}
+                                        {{ Form::close() }}
+                                    </td>
+                                    <td>
                                         {{ Form::open(array('url' => 'deleteprod/' . $item->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                             {{ Form::hidden('_method', 'DELETE') }}
-                                            {{ Form::submit('Elimina', array('class' => 'btn')) }}
+                                            {{ Form::submit('Elimina', array('class' => 'btn btn-primary')) }}
                                         {{ Form::close() }}
                                     </td>
                                     @endif

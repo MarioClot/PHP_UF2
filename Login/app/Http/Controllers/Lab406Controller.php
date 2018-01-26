@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 
 
 use App\Lab406;
+use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Lab406Controller extends Controller
 {
@@ -18,18 +20,25 @@ class Lab406Controller extends Controller
         $this->middleware('auth');
     }
 
-    public function update(Request $request,$id){
-        $users = User::all();
-        $usuari = User::findOrFail($id);
-
-        $usuari->name = $request->name;
-        $usuari->email = $request->email;
-        $usuari->password = $request->password;
-        $usuari->rol = $request->rol;
-
-        $usuari->save();
-        return redirect('/home');
+    public function create($id){
+        $item = Lab406::findOrFail($id);
+        return view('layouts.lab_406.update',['item'=>$item]);
     }
+
+    public function update(Request $request,$id){
+        $prod = Lab406::findOrFail($id);
+        $prod->localitzacio = $request['localitzacio'];
+        $prod->nom = $request['nom'];
+        $prod->quantitat_inicial = $request['quantitat_inicial'];
+        $prod->quantitat_actual = $request['quantitat_actual'];
+        $prod->proveidor = $request['proveidor'];
+        $prod->referencia_proveidor = $request['referencia_proveidor'];
+        $prod->marca_equip = $request['marca_equip'];
+        $prod->n_lot = $request['n_lot'];
+        $prod->save();
+        return redirect('/lab_406');
+
+}
 
     public function delete($id){
         $prod = Lab406::findOrFail($id);

@@ -122,7 +122,7 @@
                                     {{ Form::open(array('url' => 'deleteuser/' . $user->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                         {{ Form::hidden('_method', 'DELETE') }}
-                                        {{ Form::submit('Esborra aquest usuari', array('class' => 'btn')) }}
+                                        {{ Form::submit('Esborra aquest usuari', array('class' => 'btn btn-primary')) }}
                                     {{ Form::close() }}
                                     </td>
                                 </tr>

@@ -53,4 +53,14 @@ a {
     background-color: indianred;
 }
 
+td {
+    text-align: center;
+}
+
+.cell_editable {
+    border: 1px lightskyblue solid;
+    border-radius: 4px;
+    padding: 1px;
+    text-align: center;
+}
 

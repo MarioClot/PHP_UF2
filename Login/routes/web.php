@@ -28,5 +28,8 @@ Route::delete('/deleteuser/{id}','UserController@delete');
 
 Route::delete('/deleteprod/{id}','Lab406Controller@delete');
 
+Route::get('/editprod/{id}','Lab406Controller@create');
+Route::post('editprod/prodmod/{id}','Lab406Controller@update')->name('prodmod');
+
 Route::get('/lab_406', 'Registre406Controller@create');
 Route::post('lab_406', 'Registre406Controller@store');
