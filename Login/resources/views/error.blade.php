@@ -40,7 +40,7 @@
 
         <div class="title">
             Error de la base de dades<br>
-            <span>Assegurat que l'usuari no existeixi ja</span>
+            <span>Assegura't que el camp no existeixi ja</span>
         </div>
 
 </div>

@@ -43,7 +43,7 @@ class Registre406Controller extends Controller
 
         //auth()->login($user);
 
-        return redirect()->to('/home');
+        return redirect()->to('/lab_406');
     }
 
 }
