@@ -20,10 +20,12 @@
                                 <span>LAB 406</span>
                             </button>
                         </a>
-                        <button class="contenidor_menu">
-                            <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
-                            <span>LAB 407</span>
-                        </button>
+                        <a href="{{ url('/lab_407') }}">
+                            <button class="contenidor_menu">
+                                <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
+                                <span>LAB 407</span>
+                            </button>
+                        </a>
                         <button class="contenidor_menu">
                             <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
                             <span>REACTIUS LAB 406</span>

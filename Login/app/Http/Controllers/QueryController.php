@@ -23,6 +23,12 @@ class QueryController extends Controller
         $columnes = DB::getSchemaBuilder()->getColumnListing('lab406s');
         return view('lab_406', ['material' => $material,'columnes' => $columnes]);
     }
+    public function material_lab_407()
+    {
+        $material = DB::table('lab407s')->get();
+        $columnes = DB::getSchemaBuilder()->getColumnListing('lab407s');
+        return view('lab_407', ['material' => $material,'columnes' => $columnes]);
+    }
 
     public function proveidor()
     {
