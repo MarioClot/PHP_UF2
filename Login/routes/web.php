@@ -19,8 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('provaqr', 'QRController@create')->name('provaqr');
-Route::get('decode','QRController@decode');
+Route::get('codiqr/{nom}', 'QRController@create')->name('codiqr');
 
 Route::get('/lab_406','QueryController@material_lab_406')->name('lab_406');
 

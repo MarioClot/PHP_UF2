@@ -153,6 +153,7 @@
                                     <th>Referencia proveidor</th>
                                     <th>Marca equip</th>
                                     <th>Nº lot</th>
+                                    <th>QR</th>
                                 </tr>
                             @foreach($productes as $item)
                                 <!--?php dump($item->quantitat_actual*100/$item->quantitat_inicial<($item->percentatge_minim)) ?-->
@@ -184,6 +185,14 @@
                                     </td>
                                     <td>
                                         {{$item->n_lot}}
+                                    </td>
+                                    <td>
+                                        <!--form class="pull-right" method="POST" action="provaqr/"-->
+                                        {{ Form::open(array('url' => 'codiqr/' . $item->nom, 'class' => 'pull-right')) }}
+                                        {{ csrf_field() }}
+                                        {{ Form::hidden('_method', 'GET') }}
+                                        {{ Form::submit('QR', array('class' => 'btn btn-primary')) }}
+                                        {{ Form::close() }}
                                     </td>
                                     @if (Auth::user()->getRol()=='professor')
                                     <td>

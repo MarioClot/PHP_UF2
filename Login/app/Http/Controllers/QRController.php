@@ -17,10 +17,11 @@ class QRController extends Controller
         $this->middleware('auth');
     }
 
-    public function create()
+    public function create($nom)
     {
-        $qrCode = new QrCode('Life is too short to be generating QR codes');
-        return view('layouts.qr.exemple',['qrCode'=>$qrCode]);
+        //$qrCode = new QrCode('Life is too short to be generating QR codes');
+        $qrCode = new QrCode($nom);
+        return view('layouts.qr.codiqr',['qrCode'=>$qrCode]);
     }
 
     public function decode(){
