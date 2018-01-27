@@ -39,6 +39,12 @@
                                     <span>USUARIS</span>
                                 </button>
                             </a>
+                            <a href="{{ url('/proveidor') }}">
+                                <button class="contenidor_menu">
+                                    <img style="padding-top: 5%" class="img_boto" src="{{asset('assets/images/providers.svg')}}">
+                                    <span>PROVEÏDORS</span>
+                                </button>
+                            </a>
                         @endif
                     </div>
                 </div>

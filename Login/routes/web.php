@@ -33,3 +33,14 @@ Route::post('editprod/prodmod/{id}','Lab406Controller@update')->name('prodmod');
 
 Route::get('/lab_406', 'Registre406Controller@create');
 Route::post('lab_406', 'Registre406Controller@store');
+
+Route::get('/proveidor', 'ProveidorController@create');
+Route::post('proveidor', 'ProveidorController@store');
+
+Route::delete('/deleteprov/{id}','ProveidorEditaController@delete');
+Route::get('/editprov/{id}','ProveidorEditaController@create');
+Route::post('editprov/provmod/{id}','ProveidorEditaController@update')->name('provmod');
+
+Route::get('/proveidor','QueryController@proveidor')->name('proveidor');
+
+
