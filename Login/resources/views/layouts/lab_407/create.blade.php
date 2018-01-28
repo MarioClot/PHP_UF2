@@ -158,7 +158,7 @@
                             @foreach($productes as $item)
                                 <!--?php dump($item->quantitat_actual*100/$item->quantitat_inicial<($item->percentatge_minim)) ?-->
                                 @if (($item->stock_final*100/$item->stock_inici)<($item->percentatge_minim))
-                                    <tr style="background-color: #F2DEDE">
+                                    <tr style="background-color: #ff7f7f">
                                 @else
                                     <tr>
                                 @endif

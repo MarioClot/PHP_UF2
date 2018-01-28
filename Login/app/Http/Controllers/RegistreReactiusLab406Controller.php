@@ -47,7 +47,7 @@ class RegistreReactiusLab406Controller extends Controller
 
         //auth()->login($user);
 
-        return redirect()->to('/home');
+        return redirect()->to('/reactiuslab406');
     }
 
 
