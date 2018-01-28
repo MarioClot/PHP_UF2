@@ -82,14 +82,12 @@
                 <div class="title m-b-md">
                     Labb
                 </div>
+            </br>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                    <a href="https://github.com/laravel/laravel">PROVA</a>
+                    <a href="http://fje.edu">FJE</a>
+                    <a href="http://www.insht.es/InshtWeb/Contenidos/Documentacion/TextosOnline/postersTecnicos/ficheros/CARTEL%20SGA.pdf">Pictogrames Seguretat</a>
+                    <a href="http://www.ub.edu/oblq/oblq%20castellano/index1.html">Manual lab Química</a>
                 </div>
             </div>
         </div>

@@ -9,11 +9,11 @@
 namespace App\Http\Controllers;
 
 
-use App\Lab407;
+use App\Reactiuslab406;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class Lab407Controller extends Controller
+class ReactiusLab406Controller extends Controller
 {
     public function __construct()
     {
@@ -21,30 +21,33 @@ class Lab407Controller extends Controller
     }
 
     public function create($id){
-        $item = Lab407::findOrFail($id);
-        return view('layouts.lab_407.update',['item'=>$item]);
+        $item = Reactiuslab406::findOrFail($id);
+        return view('layouts.reactius_lab_406.update',['item'=>$item]);
     }
 
 
     public function update(Request $request,$id){
-        $prod = Lab407::findOrFail($id);
+        $prod = Reactiuslab406::findOrFail($id);
         $prod->localitzacio = $request['localitzacio'];
         $prod->nom = $request['nom'];
-        $prod->stock_inici = $request['stock_inici'];
+        $prod->quantitat = $request['quantitat'];
+        $prod->stock_actual = $request['stock_actual'];
         $prod->stock_final = $request['stock_final'];
         $prod->proveidor = $request['proveidor'];
         $prod->referencia_proveidor = $request['referencia_proveidor'];
         $prod->marca_equip = $request['marca_equip'];
         $prod->n_lot = $request['n_lot'];
+        $prod->data_caducitat = $request['data_caducitat'];
+        $prod->referencia_marca = $request['referencia_marca'];
         $prod->save();
-        return redirect('/lab_407');
+        return redirect('/reactius_lab_406');
     }
 
 
     public function delete($id){
-        $prod = Lab407::findOrFail($id);
+        $prod = Reactiuslab406::findOrFail($id);
         $prod->delete();
 
-        return redirect('/lab_407');
+        return redirect('/reactius_lab_406');
     }
 }

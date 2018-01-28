@@ -30,11 +30,25 @@ class QueryController extends Controller
         return view('lab_407', ['material' => $material,'columnes' => $columnes]);
     }
 
+    public function material_reactius_lab_406()
+    {
+        $material = DB::table('reactiuslab406s')->get();
+        $columnes = DB::getSchemaBuilder()->getColumnListing('reactiuslab406s');
+        return view('reactius_lab_406', ['material' => $material,'columnes' => $columnes]);
+    }
+
+    public function material_magatzem_sanitat()
+    {
+        $material = DB::table('magatzemsanitats')->get();
+        $columnes = DB::getSchemaBuilder()->getColumnListing('magatzemsanitats');
+        return view('magatzemsanitat', ['material' => $material,'columnes' => $columnes]);
+    }
+
     public function proveidor()
     {
-        $material = DB::table('proveidors')->get();
+        $proveidors = DB::table('proveidors')->get();
         $columnes = DB::getSchemaBuilder()->getColumnListing('proveidors');
-        return view('proveidor', ['material' => $material,'columnes' => $columnes]);
+        return view('layouts.proveidor.create', ['proveidors' => $proveidors,'columnes' => $columnes]);
     }
 
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLab407sTable extends Migration
+class CreateMagatzemsanitatsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateLab407sTable extends Migration
      */
     public function up()
     {
-        Schema::create('lab407s', function (Blueprint $table) {
+        Schema::create('magatzemsanitats', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->string('localitzacio');
             $table->string('nom');
             $table->float('stock_inici');
             $table->float('stock_final');
+            $table->float('necessitem');
             $table->float('percentatge_minim');
             $table->string('proveidor');
             $table->string('referencia_proveidor');
-            $table->string('marca_equip');
-            $table->string('n_lot');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -36,6 +35,6 @@ class CreateLab407sTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lab407s');
+        Schema::dropIfExists('magatzemsanitats');
     }
 }

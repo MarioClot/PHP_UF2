@@ -11,7 +11,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Lab407 extends Authenticatable
+class Reactiuslab406 extends Authenticatable
 {
     use Notifiable;
 
@@ -22,7 +22,7 @@ class Lab407 extends Authenticatable
      */
     protected $fillable = [
 
-        'localitzacio' , 'nom', 'stock_inici', 'stock_final', 'proveidor', 'referencia_proveidor' , 'marca_equip' , 'n_lot'
+        'localitzacio' , 'nom', 'quantitat', 'stock_actual', 'stock_final', 'proveidor', 'referencia_proveidor' , 'marca_equip' , 'n_lot', 'data_caducitat', 'referencia_marca'
 
         ];
 

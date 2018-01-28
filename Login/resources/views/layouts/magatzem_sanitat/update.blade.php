@@ -15,11 +15,10 @@
                                     <th>Nom</th>
                                     <th>Stock Inici</th>
                                     <th>Stock Final</th>
+                                    <th>Necessitem</th>
                                     <th>Percentatge minim d'avís</th>
                                     <th>Proveidor</th>
                                     <th>Referencia proveidor</th>
-                                    <th>Marca equip</th>
-                                    <th>Nº lot</th>
                                 </tr>
 
                                     {{ csrf_field() }}
@@ -57,6 +56,15 @@
                                             </span>
                                         @endif
                                     </td>
+
+                                    <td>
+                                        <input id="necessitem" spellcheck="false" type="text" class="form-control" name="necessitem" value="{{ $item->necessitem }}" required>
+                                        @if ($errors->has('necessitem'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('necessitem') }}</strong>
+                                            </span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <input id="percentatge_minim" spellcheck="false" type="number" class="form-control" name="percentatge_minim" value="{{ $item->percentatge_minim }}" required>
                                         @if ($errors->has('percentatge_minim'))
@@ -81,22 +89,7 @@
                                             </span>
                                         @endif
                                     </td>
-                                    <td>
-                                        <input id="marca_equip" spellcheck="false" type="text" class="form-control" name="marca_equip" value="{{ $item->marca_equip }}" required>
-                                        @if ($errors->has('marca_equip'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('marca_equip') }}</strong>
-                                            </span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <input id="n_lot" spellcheck="false" type="text" class="form-control" name="n_lot" value="{{ $item->n_lot }}" required>
-                                        @if ($errors->has('n_lot'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('n_lot') }}</strong>
-                                            </span>
-                                        @endif
-                                    </td>
+
                                     <td>
                                         <button type="submit" class="btn btn-primary">
                                             Guarda

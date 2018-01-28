@@ -36,7 +36,7 @@ class ProveidorEditaController extends Controller
         $prov->telefon = $request['telefon'];
         $prov->email = $request['email'];
         $prov->contacte = $request['contacte'];
-        $prov->pagina_web = $request['web'];
+        $prov->web = $request['web'];
         $prov->save();
         return redirect('/proveidor');
 

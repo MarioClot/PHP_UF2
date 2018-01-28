@@ -44,6 +44,6 @@ class ProveidorController extends Controller
 
         //auth()->login($user);
 
-        return redirect()->to('/home');
+        return redirect()->to('/proveidor');
     }
 }

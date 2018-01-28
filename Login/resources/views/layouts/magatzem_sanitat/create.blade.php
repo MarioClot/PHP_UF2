@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Laboratori 407</div>
+                    <div class="panel-heading">Magatzem Sanitat</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="/lab_407">
+                        <form class="form-horizontal" method="POST" action="/magatzemsanitat">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('localitzacio') ? ' has-error' : '' }}">
@@ -66,6 +66,20 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('necessitem') ? ' has-error' : '' }}">
+                                <label for="necessitem" class="col-md-4 control-label">Necessitem</label>
+
+                                <div class="col-md-6">
+                                    <input id="necessitem" type="text" class="form-control" name="necessitem" value="{{ old('necessitem') }}" required>
+
+                                    @if ($errors->has('necessitem'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('necessitem') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group{{ $errors->has('proveidor') ? ' has-error' : '' }}">
                                 <label for="proveidor" class="col-md-4 control-label">Proveidor</label>
 
@@ -79,6 +93,7 @@
                                     @endif
                                 </div>
                             </div>
+
                             <div class="form-group{{ $errors->has('referencia_proveidor') ? ' has-error' : '' }}">
                                 <label for="referencia_proveidor" class="col-md-4 control-label">Referencia proveidor</label>
 
@@ -88,32 +103,6 @@
                                     @if ($errors->has('referencia_proveidor'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('referencia_proveidor') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group{{ $errors->has('marca_equip') ? ' has-error' : '' }}">
-                                <label for="marca_equip" class="col-md-4 control-label">Marca equip</label>
-
-                                <div class="col-md-6">
-                                    <input id="marca_equip" type="text" class="form-control" name="marca_equip" value="{{ old('marca_equip') }}" required>
-
-                                    @if ($errors->has('marca_equip'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('marca_equip') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group{{ $errors->has('n_lot') ? ' has-error' : '' }}">
-                                <label for="n_lot" class="col-md-4 control-label">Nº lot</label>
-
-                                <div class="col-md-6">
-                                    <input id="n_lot" type="text" class="form-control" name="n_lot" value="{{ old('n_lot') }}" required>
-
-                                    @if ($errors->has('n_lot'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('n_lot') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -149,10 +138,9 @@
                                     <th>Nom</th>
                                     <th>Stock Inici</th>
                                     <th>Stock Final</th>
+                                    <th>Necessitem</th>
                                     <th>Proveidor</th>
                                     <th>Referencia proveidor</th>
-                                    <th>Marca equip</th>
-                                    <th>Nº lot</th>
                                 </tr>
                             @foreach($productes as $item)
                                 <!--?php dump($item->quantitat_actual*100/$item->quantitat_inicial<($item->percentatge_minim)) ?-->
@@ -174,17 +162,15 @@
                                         {{$item->stock_final}}
                                     </td>
                                     <td>
+                                        {{$item->necessitem}}
+                                    </td>
+                                    <td>
                                         {{$item->proveidor}}
                                     </td>
                                     <td>
                                         {{$item->referencia_proveidor}}
                                     </td>
-                                    <td>
-                                        {{$item->marca_equip}}
-                                    </td>
-                                    <td>
-                                        {{$item->n_lot}}
-                                    </td>
+
                                     @if (Auth::user()->getRol()=='professor')
                                     <td>
                                         {{ Form::open(array('url' => 'editprod/' . $item->id, 'class' => 'pull-right')) }}
