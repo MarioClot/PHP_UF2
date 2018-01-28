@@ -9,11 +9,11 @@
 namespace App\Http\Controllers;
 
 
-use App\Lab407;
+use App\Magatzemsanitat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class Registre407Controller extends Controller
+class RegistreMagatzemSanitatController extends Controller
 {
     public function __construct()
     {
@@ -22,8 +22,8 @@ class Registre407Controller extends Controller
 
     public function create()
     {
-        $productes = DB::table('lab407s')->get();
-        return view('layouts.lab_407.create',['productes' => $productes]);
+        $productes = DB::table('magatzemsanitats')->get();
+        return view('layouts.magatzem_sanitat.create',['productes' => $productes]);
     }
 
 
@@ -34,13 +34,13 @@ class Registre407Controller extends Controller
             'nom' => 'required',
             'stock_inici' => 'required',
             'stock_final' => 'required',
+            'necessitem' => 'required',
             'proveidor' => 'required',
-            'referencia_proveidor' => 'required',
-            'marca_equip' => 'required',
-            'n_lot' => 'required'
+            'referencia_proveidor' => 'required'
+
         ]);
 
-        $lab4067= Lab407::create(request(['localitzacio','nom','stock_inici','stock_final', 'proveidor','referencia_proveidor', 'marca_equip', 'n_lot']));
+        $Magatzemsanitat= Magatzemsanitat::create(request(['localitzacio','nom','stock_inici','stock_final', 'necessitem','proveidor','referencia_proveidor']));
 
         //auth()->login($user);
 

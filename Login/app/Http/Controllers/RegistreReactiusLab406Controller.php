@@ -9,11 +9,11 @@
 namespace App\Http\Controllers;
 
 
-use App\Lab407;
+use App\Reactiuslab406;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class Registre407Controller extends Controller
+class RegistreReactiusLab406Controller extends Controller
 {
     public function __construct()
     {
@@ -22,8 +22,8 @@ class Registre407Controller extends Controller
 
     public function create()
     {
-        $productes = DB::table('lab407s')->get();
-        return view('layouts.lab_407.create',['productes' => $productes]);
+        $productes = DB::table('reactiuslab406s')->get();
+        return view('layouts.reactius_lab_406.create',['productes' => $productes]);
     }
 
 
@@ -32,15 +32,18 @@ class Registre407Controller extends Controller
         $this->validate(request(), [
             'localitzacio' => 'required',
             'nom' => 'required',
-            'stock_inici' => 'required',
+            'quantitat' => 'required',
+            'stock_actual' => 'required',
             'stock_final' => 'required',
             'proveidor' => 'required',
             'referencia_proveidor' => 'required',
             'marca_equip' => 'required',
-            'n_lot' => 'required'
+            'n_lot' => 'required',
+            'data_caducitat' => 'required',
+            'referencia_marca' => 'required',
         ]);
 
-        $lab4067= Lab407::create(request(['localitzacio','nom','stock_inici','stock_final', 'proveidor','referencia_proveidor', 'marca_equip', 'n_lot']));
+        $reactiuslab406= Reactiuslab406::create(request(['localitzacio','nom','quantitat','stock_actual','stock_final', 'proveidor','referencia_proveidor', 'marca_equip', 'n_lot','data_caducitat','referencia_marca']));
 
         //auth()->login($user);
 

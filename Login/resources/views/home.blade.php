@@ -26,14 +26,18 @@
                                 <span>LAB 407</span>
                             </button>
                         </a>
+                        <a href="{{ url('/reactiuslab406') }}">
                         <button class="contenidor_menu">
                             <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
                             <span>REACTIUS LAB 406</span>
                         </button>
+                        </a>
+                        <a href="{{ url('/magatzemsanitat') }}">
                         <button class="contenidor_menu">
                             <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
                             <span>MAGATZEM SANITAT</span>
                         </button>
+                        </a>
                         @if (Auth::user()->getRol()=='professor')
                             <a href="{{ url('/registre') }}">
                                 <button class="contenidor_menu">

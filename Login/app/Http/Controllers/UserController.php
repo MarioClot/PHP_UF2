@@ -27,7 +27,7 @@ class UserController extends Controller
         $usuari->rol = $request->rol;
 
         $usuari->save();
-        return redirect('/home');
+        return redirect('/registre');
     }
 
     public function update(Request $request,$id){
@@ -40,7 +40,7 @@ class UserController extends Controller
         $usuari->rol = $request->rol;
 
         $usuari->save();
-        return redirect('/home');
+        return redirect('/registre');
     }
 
     public function delete($id){

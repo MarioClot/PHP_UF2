@@ -13,18 +13,21 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Lab407::class, function (Faker $faker) {
+$factory->define(App\Reactiuslab406::class, function (Faker $faker) {
     return [
 
         'localitzacio' => $faker->words,
         'nom' => $faker->name,
-        'stock_inici' => $faker->latitude,
+        'quantitat' => $faker->name,
+        'stock_actual' => $faker->latitude,
         'stock_final' => $faker->latitude,
         'percentatge_minim' => $faker->century,
         'proveidor' => $faker->name,
         'referencia_proveidor' => $faker->words,
         'marca_equip' => $faker->name,
         'n_lot' => $faker->name,
+        'data_caducitat' => $faker->name,
+        'referencia_marca' => $faker->name,
         'remember_token' => str_random(10),
 
     ];

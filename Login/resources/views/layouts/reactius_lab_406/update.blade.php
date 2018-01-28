@@ -13,13 +13,16 @@
                                 <tr>
                                     <th>Localitzacio</th>
                                     <th>Nom</th>
-                                    <th>Stock Inici</th>
+                                    <th>Quantitat</th>
+                                    <th>Stock Actual</th>
                                     <th>Stock Final</th>
                                     <th>Percentatge minim d'avís</th>
                                     <th>Proveidor</th>
                                     <th>Referencia proveidor</th>
                                     <th>Marca equip</th>
                                     <th>Nº lot</th>
+                                    <th>Data Caducitat</th>
+                                    <th>Referencia Marca</th>
                                 </tr>
 
                                     {{ csrf_field() }}
@@ -42,10 +45,18 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="stock_inici" spellcheck="false" type="number" class="form-control" name="stock_inici" value="{{ $item->stock_inici }}" required>
-                                        @if ($errors->has('stock_inici'))
+                                        <input id="quantitat" spellcheck="false" type="number" class="form-control" name="quantitat" value="{{ $item->quantitat }}" required>
+                                        @if ($errors->has('quantitat'))
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('stock_inici') }}</strong>
+                                                <strong>{{ $errors->first('quantitat') }}</strong>
+                                            </span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <input id="stock_actual" spellcheck="false" type="number" class="form-control" name="stock_actual" value="{{ $item->stock_actual }}" required>
+                                        @if ($errors->has('stock_actual'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('stock_actual') }}</strong>
                                             </span>
                                         @endif
                                     </td>
@@ -97,6 +108,25 @@
                                             </span>
                                         @endif
                                     </td>
+
+                                    <td>
+                                        <input id="data_caducitat" spellcheck="false" type="text" class="form-control" name="n_lot" value="{{ $item->data_caducitat }}" required>
+                                        @if ($errors->has('data_caducitat'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('data_caducitat') }}</strong>
+                                            </span>
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                        <input id="referencia_marca" spellcheck="false" type="text" class="form-control" name="referencia_marca" value="{{ $item->referencia_marca }}" required>
+                                        @if ($errors->has('referencia_marca'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('referencia_marca') }}</strong>
+                                            </span>
+                                        @endif
+                                    </td>
+
                                     <td>
                                         <button type="submit" class="btn btn-primary">
                                             Guarda
