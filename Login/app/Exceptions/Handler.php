@@ -49,10 +49,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof \Illuminate\Database\QueryException) {
+        /*if ($exception instanceof \Illuminate\Database\QueryException) {
             $data = "Error de la base de dades";
             return response()->view('error', [$data]);
-        }
+        }*/
         return parent::render($request, $exception);
     }
 }

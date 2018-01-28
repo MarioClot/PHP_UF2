@@ -35,3 +35,26 @@ Route::post('editprod/prodmod/{id}','Lab406Controller@update')->name('prodmod');
 
 Route::get('/lab_406', 'Registre406Controller@create');
 Route::post('lab_406', 'Registre406Controller@store');
+
+//407
+Route::get('/lab_407','QueryController@material_lab_407')->name('lab_407');
+
+Route::delete('/deleteprod/{id}','Lab407Controller@delete');
+
+Route::get('/editprod/{id}','Lab407Controller@create');
+Route::post('editprod/prodmod/{id}','Lab407Controller@update')->name('prodmod');
+
+Route::get('/lab_407', 'Registre407Controller@create');
+Route::post('lab_407', 'Registre407Controller@store');
+
+//Proveidor
+Route::get('/proveidor', 'ProveidorController@create');
+Route::post('proveidor', 'ProveidorController@store');
+
+Route::delete('/deleteprov/{id}','ProveidorEditaController@delete');
+Route::get('/editprov/{id}','ProveidorEditaController@create');
+Route::post('editprov/provmod/{id}','ProveidorEditaController@update')->name('provmod');
+
+Route::get('/proveidor','QueryController@proveidor')->name('proveidor');
+
+
