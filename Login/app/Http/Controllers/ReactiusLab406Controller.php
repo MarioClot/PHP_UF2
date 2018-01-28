@@ -40,7 +40,7 @@ class ReactiusLab406Controller extends Controller
         $prod->data_caducitat = $request['data_caducitat'];
         $prod->referencia_marca = $request['referencia_marca'];
         $prod->save();
-        return redirect('/reactius_lab_406');
+        return redirect('/reactiuslab406');
     }
 
 
@@ -48,6 +48,6 @@ class ReactiusLab406Controller extends Controller
         $prod = Reactiuslab406::findOrFail($id);
         $prod->delete();
 
-        return redirect('/reactius_lab_406');
+        return redirect('/reactiuslab406');
     }
 }

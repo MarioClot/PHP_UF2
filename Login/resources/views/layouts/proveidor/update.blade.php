@@ -41,7 +41,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="NIF_CIF" spellcheck="false" type="number" class="form-control" name="NIF_CIF" value="{{ $item->NIF_CIF }}" required>
+                                        <input id="NIF_CIF" spellcheck="false" type="text" class="form-control" name="NIF_CIF" value="{{ $item->NIF_CIF }}" required>
                                         @if ($errors->has('NIF_CIF'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('NIF_CIF') }}</strong>
@@ -49,7 +49,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="adreca" spellcheck="false" type="number" class="form-control" name="adreca" value="{{ $item->adreca }}" required>
+                                        <input id="adreca" spellcheck="false" type="text" class="form-control" name="adreca" value="{{ $item->adreca }}" required>
                                         @if ($errors->has('adreca'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('adreca') }}</strong>
@@ -65,7 +65,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="email" spellcheck="false" type="text" class="form-control" name="email" value="{{ $item->email }}" required>
+                                        <input id="email" spellcheck="false" type="email" class="form-control" name="email" value="{{ $item->email }}" required>
                                         @if ($errors->has('email'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('email') }}</strong>

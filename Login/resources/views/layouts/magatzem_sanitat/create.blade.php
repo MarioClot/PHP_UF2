@@ -9,6 +9,7 @@
                     <div class="panel-heading">Magatzem Sanitat</div>
 
                     <div class="panel-body">
+
                         <form class="form-horizontal" method="POST" action="/magatzemsanitat">
                             {{ csrf_field() }}
 
@@ -141,6 +142,7 @@
                                     <th>Necessitem</th>
                                     <th>Proveidor</th>
                                     <th>Referencia proveidor</th>
+                                    <th>QR</th>
                                 </tr>
                             @foreach($productes as $item)
                                 <!--?php dump($item->quantitat_actual*100/$item->quantitat_inicial<($item->percentatge_minim)) ?-->
@@ -170,17 +172,23 @@
                                     <td>
                                         {{$item->referencia_proveidor}}
                                     </td>
-
-                                    @if (Auth::user()->getRol()=='professor')
                                     <td>
-                                        {{ Form::open(array('url' => 'editprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ Form::open(array('url' => 'codiqr/' . $item->nom, 'class' => 'pull-right')) }}
+                                        {{ csrf_field() }}
+                                        {{ Form::hidden('_method', 'GET') }}
+                                        {{ Form::submit('QR', array('class' => 'btn btn-primary')) }}
+                                        {{ Form::close() }}
+                                    </td>
+                                    <td>
+                                        {{ Form::open(array('url' => 'editprodms/' . $item->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                         {{ Form::hidden('_method', 'GET') }}
                                         {{ Form::submit('Edita', array('class' => 'btn btn-primary')) }}
                                         {{ Form::close() }}
                                     </td>
+                                    @if (Auth::user()->getRol()=='professor')
                                     <td>
-                                        {{ Form::open(array('url' => 'deleteprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ Form::open(array('url' => 'deleteprodms/' . $item->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                             {{ Form::hidden('_method', 'DELETE') }}
                                             {{ Form::submit('Elimina', array('class' => 'btn btn-primary')) }}

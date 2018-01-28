@@ -8,6 +8,11 @@
                         <div class="panel-heading">Editar: {{$item->nom}}</div>
 
                         <div class="panel-body">
+                            @if (Auth::user()->getRol()=='professor')
+                                <?php $readonly = ""?>
+                            @else
+                                <?php $readonly = "readonly"?>
+                            @endif
                             <form method="POST" action="prodmod/{{$item->id}}">
                             <table class="table-striped table-hover">
                                 <tr>
@@ -16,7 +21,6 @@
                                     <th>Quantitat</th>
                                     <th>Stock Actual</th>
                                     <th>Stock Final</th>
-                                    <th>Percentatge minim d'avís</th>
                                     <th>Proveidor</th>
                                     <th>Referencia proveidor</th>
                                     <th>Marca equip</th>
@@ -29,7 +33,7 @@
                                 <tr>
 
                                     <td>
-                                        <input id="localitzacio" spellcheck="false" type="text" class="form-control" name="localitzacio" value="{{ $item->localitzacio }}" required>
+                                        <input id="localitzacio" spellcheck="false" {{$readonly}} type="text" class="form-control" name="localitzacio" value="{{ $item->localitzacio }}" required>
                                         @if ($errors->has('localitzacio'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('localitzacio') }}</strong>
@@ -37,7 +41,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="nom" spellcheck="false" type="text" class="form-control" name="nom" value="{{ $item->nom }}" required>
+                                        <input id="nom" spellcheck="false" {{$readonly}} type="text" class="form-control" name="nom" value="{{ $item->nom }}" required>
                                         @if ($errors->has('nom'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('nom') }}</strong>
@@ -45,7 +49,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="quantitat" spellcheck="false" type="number" class="form-control" name="quantitat" value="{{ $item->quantitat }}" required>
+                                        <input id="quantitat" spellcheck="false" {{$readonly}} type="number" class="form-control" name="quantitat" value="{{ $item->quantitat }}" required>
                                         @if ($errors->has('quantitat'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('quantitat') }}</strong>
@@ -61,7 +65,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="stock_final" spellcheck="false" type="number" class="form-control" name="stock_final" value="{{ $item->stock_final }}" required>
+                                        <input id="stock_final" spellcheck="false" {{$readonly}} type="number" class="form-control" name="stock_final" value="{{ $item->stock_final }}" required>
                                         @if ($errors->has('stock_final'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('stock_final') }}</strong>
@@ -69,15 +73,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="percentatge_minim" spellcheck="false" type="number" class="form-control" name="percentatge_minim" value="{{ $item->percentatge_minim }}" required>
-                                        @if ($errors->has('percentatge_minim'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('percentatge_minim') }}</strong>
-                                            </span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <input id="proveidor" spellcheck="false" type="text" class="form-control" name="proveidor" value="{{ $item->proveidor }}" required>
+                                        <input id="proveidor" spellcheck="false" {{$readonly}} type="text" class="form-control" name="proveidor" value="{{ $item->proveidor }}" required>
                                         @if ($errors->has('proveidor'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('proveidor') }}</strong>
@@ -85,7 +81,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="referencia_proveidor" spellcheck="false" type="text" class="form-control" name="referencia_proveidor" value="{{ $item->referencia_proveidor }}" required>
+                                        <input id="referencia_proveidor" spellcheck="false" {{$readonly}} type="text" class="form-control" name="referencia_proveidor" value="{{ $item->referencia_proveidor }}" required>
                                         @if ($errors->has('referencia_proveidor'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('referencia_proveidor') }}</strong>
@@ -93,7 +89,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="marca_equip" spellcheck="false" type="text" class="form-control" name="marca_equip" value="{{ $item->marca_equip }}" required>
+                                        <input id="marca_equip" spellcheck="false" {{$readonly}} type="text" class="form-control" name="marca_equip" value="{{ $item->marca_equip }}" required>
                                         @if ($errors->has('marca_equip'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('marca_equip') }}</strong>
@@ -101,7 +97,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <input id="n_lot" spellcheck="false" type="text" class="form-control" name="n_lot" value="{{ $item->n_lot }}" required>
+                                        <input id="n_lot" spellcheck="false" {{$readonly}} type="text" class="form-control" name="n_lot" value="{{ $item->n_lot }}" required>
                                         @if ($errors->has('n_lot'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('n_lot') }}</strong>
@@ -110,7 +106,7 @@
                                     </td>
 
                                     <td>
-                                        <input id="data_caducitat" spellcheck="false" type="text" class="form-control" name="n_lot" value="{{ $item->data_caducitat }}" required>
+                                        <input id="data_caducitat" spellcheck="false" {{$readonly}} type="date" class="form-control" name="n_lot" value="{{ $item->data_caducitat }}" required>
                                         @if ($errors->has('data_caducitat'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('data_caducitat') }}</strong>
@@ -119,7 +115,7 @@
                                     </td>
 
                                     <td>
-                                        <input id="referencia_marca" spellcheck="false" type="text" class="form-control" name="referencia_marca" value="{{ $item->referencia_marca }}" required>
+                                        <input id="referencia_marca" spellcheck="false" {{$readonly}} type="text" class="form-control" name="referencia_marca" value="{{ $item->referencia_marca }}" required>
                                         @if ($errors->has('referencia_marca'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('referencia_marca') }}</strong>

@@ -36,7 +36,7 @@ class MagatzemSanitatController extends Controller
         $prod->proveidor = $request['proveidor'];
         $prod->referencia_proveidor = $request['referencia_proveidor'];
         $prod->save();
-        return redirect('/magatzem_sanitat');
+        return redirect('/magatzemsanitat');
     }
 
 
@@ -44,6 +44,6 @@ class MagatzemSanitatController extends Controller
         $prod = Magatzemsanitat::findOrFail($id);
         $prod->delete();
 
-        return redirect('/magatzem_sanitat');
+        return redirect('/magatzemsanitat');
     }
 }

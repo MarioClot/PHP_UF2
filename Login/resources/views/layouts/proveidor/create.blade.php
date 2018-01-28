@@ -43,7 +43,7 @@
                                 <label for="NIF_CIF" class="col-md-4 control-label">NIF/CIF</label>
 
                                 <div class="col-md-6">
-                                    <input id="NIF_CIF" type="number" class="form-control" name="NIF_CIF" value="{{ old('NIF_CIF') }}" required>
+                                    <input id="NIF_CIF" type="text" class="form-control" name="NIF_CIF" value="{{ old('NIF_CIF') }}" required>
 
                                     @if ($errors->has('NIF_CIF'))
                                         <span class="help-block">
@@ -57,7 +57,7 @@
                                 <label for="adreca" class="col-md-4 control-label">Adreça</label>
 
                                 <div class="col-md-6">
-                                <input id="adreca" type="number" class="form-control" name="adreca" value="{{ old('adreca') }}" required>
+                                <input id="adreca" type="text" class="form-control" name="adreca" value="{{ old('adreca') }}" required>
                                     @if ($errors->has('adreca'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('adreca') }}</strong>
@@ -83,7 +83,7 @@
                                 <label for="email" class="col-md-4 control-label">Email</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required>
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">

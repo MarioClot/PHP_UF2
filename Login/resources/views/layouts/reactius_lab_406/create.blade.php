@@ -43,7 +43,7 @@
                                 <label for="quantitat" class="col-md-4 control-label">Quantitat</label>
 
                                 <div class="col-md-6">
-                                    <input id="quantitat" type="text" class="form-control" name="quantitat" value="{{ old('quantitat') }}" required autofocus>
+                                    <input id="quantitat" type="number" class="form-control" name="quantitat" value="{{ old('quantitat') }}" required autofocus>
 
                                     @if ($errors->has('quantitat'))
                                         <span class="help-block">
@@ -136,7 +136,7 @@
                                 <label for="data_caducitat" class="col-md-4 control-label">Data Caducitat</label>
 
                                 <div class="col-md-6">
-                                    <input id="data_caducitat" type="text" class="form-control" name="data_caducitat" value="{{ old('data_caducitat') }}" required>
+                                    <input id="data_caducitat" type="date" class="form-control" name="data_caducitat" value="{{ old('data_caducitat') }}" required>
 
                                     @if ($errors->has('data_caducitat'))
                                         <span class="help-block">
@@ -198,6 +198,7 @@
                                     <th>Nº lot</th>
                                     <th>Data Caducitat</th>
                                     <th>Referència Marca</th>
+                                    <th>QR</th>
                                 </tr>
                             @foreach($productes as $item)
                                 <!--?php dump($item->quantitat_actual*100/$item->quantitat_inicial<($item->percentatge_minim)) ?-->
@@ -216,7 +217,7 @@
                                         {{$item->quantitat}}
                                     </td>
                                     <td>
-                                        {{$item->stock_inici}}
+                                        {{$item->stock_actual}}
                                     </td>
                                     <td>
                                         {{$item->stock_final}}
@@ -239,16 +240,23 @@
                                     <td>
                                         {{$item->referencia_marca}}
                                     </td>
-                                    @if (Auth::user()->getRol()=='professor')
                                     <td>
-                                        {{ Form::open(array('url' => 'editprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ Form::open(array('url' => 'codiqr/' . $item->nom, 'class' => 'pull-right')) }}
+                                        {{ csrf_field() }}
+                                        {{ Form::hidden('_method', 'GET') }}
+                                        {{ Form::submit('QR', array('class' => 'btn btn-primary')) }}
+                                        {{ Form::close() }}
+                                    </td>
+                                    <td>
+                                        {{ Form::open(array('url' => 'editprodR406/' . $item->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                         {{ Form::hidden('_method', 'GET') }}
                                         {{ Form::submit('Edita', array('class' => 'btn btn-primary')) }}
                                         {{ Form::close() }}
                                     </td>
+                                    @if (Auth::user()->getRol()=='professor')
                                     <td>
-                                        {{ Form::open(array('url' => 'deleteprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ Form::open(array('url' => 'deleteprodR406/' . $item->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                             {{ Form::hidden('_method', 'DELETE') }}
                                             {{ Form::submit('Elimina', array('class' => 'btn btn-primary')) }}

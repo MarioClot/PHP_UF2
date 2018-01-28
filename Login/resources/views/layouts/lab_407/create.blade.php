@@ -153,6 +153,7 @@
                                     <th>Referencia proveidor</th>
                                     <th>Marca equip</th>
                                     <th>Nº lot</th>
+                                    <th>QR</th>
                                 </tr>
                             @foreach($productes as $item)
                                 <!--?php dump($item->quantitat_actual*100/$item->quantitat_inicial<($item->percentatge_minim)) ?-->
@@ -185,16 +186,23 @@
                                     <td>
                                         {{$item->n_lot}}
                                     </td>
-                                    @if (Auth::user()->getRol()=='professor')
                                     <td>
-                                        {{ Form::open(array('url' => 'editprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ Form::open(array('url' => 'codiqr/' . $item->nom, 'class' => 'pull-right')) }}
+                                        {{ csrf_field() }}
+                                        {{ Form::hidden('_method', 'GET') }}
+                                        {{ Form::submit('QR', array('class' => 'btn btn-primary')) }}
+                                        {{ Form::close() }}
+                                    </td>
+                                    <td>
+                                        {{ Form::open(array('url' => 'editprod407/' . $item->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                         {{ Form::hidden('_method', 'GET') }}
                                         {{ Form::submit('Edita', array('class' => 'btn btn-primary')) }}
                                         {{ Form::close() }}
                                     </td>
+                                    @if (Auth::user()->getRol()=='professor')
                                     <td>
-                                        {{ Form::open(array('url' => 'deleteprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ Form::open(array('url' => 'deleteprod407/' . $item->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                             {{ Form::hidden('_method', 'DELETE') }}
                                             {{ Form::submit('Elimina', array('class' => 'btn btn-primary')) }}

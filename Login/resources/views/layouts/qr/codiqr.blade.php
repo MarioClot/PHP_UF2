@@ -7,8 +7,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Codi QR</div>
                         <div class="panel-body">
-                            <?php $qrCode->writeFile('qrcode2.png'); ?>
-                            <img src="{{asset('qrcode2.png')}}">
+                            <?php $qrCode->writeFile('qrcode.png'); ?>
+                            <img src="{{asset('qrcode.png')}}">
                         </div>
                 </div>
             </div>

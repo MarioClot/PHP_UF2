@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Menú principal</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -16,13 +16,13 @@
                     <div class="botons">
                         <a href="{{ url('/lab_406') }}">
                             <button class="contenidor_menu">
-                                <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
-                                <span>LAB 406</span>
+                                <img class="img_boto" src="{{asset('assets/images/lab.svg')}}">
+                                <span><b>LAB 406</span>
                             </button>
                         </a>
                         <a href="{{ url('/lab_407') }}">
                             <button class="contenidor_menu">
-                                <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
+                                <img class="img_boto" src="{{asset('assets/images/lab.svg')}}">
                                 <span>LAB 407</span>
                             </button>
                         </a>
@@ -34,7 +34,7 @@
                         </a>
                         <a href="{{ url('/magatzemsanitat') }}">
                         <button class="contenidor_menu">
-                            <img class="img_boto" src="{{asset('assets/images/chemistry.svg')}}">
+                            <img class="img_boto" src="{{asset('assets/images/stock.svg')}}">
                             <span>MAGATZEM SANITAT</span>
                         </button>
                         </a>
