@@ -20,7 +20,7 @@ class CreateProveidorsTable extends Migration
             $table->string('nom');
             $table->string('NIF_CIF');
             $table->string('adreca');
-            $table->float('telefon');
+            $table->integer('telefon');
             $table->string('email');
             $table->string('contacte');
             $table->string('web');

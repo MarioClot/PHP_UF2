@@ -69,7 +69,6 @@
                                         @endif
                                     </td>
                                     <td>
-                                    <td>
                                         <input id="proveidor" spellcheck="false" {{$readonly}} type="text" class="form-control" name="proveidor" value="{{ $item->proveidor }}" required>
                                         @if ($errors->has('proveidor'))
                                             <span class="help-block">
