@@ -25,12 +25,8 @@ class QRController extends Controller
     }
 
     public function decode(){
-        $qrcode = new \QrReader('qrcode2.png');
+        $qrcode = new \QrReader('qrcode.png');
         $text = $qrcode->text();
         return view('layouts.qr.decode',['text'=>$text]);
-    }
-
-    public function vista(){
-        return view('/exemple');
     }
 }

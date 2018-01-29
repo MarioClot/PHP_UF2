@@ -158,7 +158,7 @@
                             @foreach($productes as $item)
                                 <!--?php dump($item->quantitat_actual*100/$item->quantitat_inicial<($item->percentatge_minim)) ?-->
                                 @if (($item->quantitat_actual*100/$item->quantitat_inicial)<($item->percentatge_minim))
-                                    <tr style="background-color: #F2DEDE">
+                                    <tr style="background-color: #ff7f7f">
                                 @else
                                     <tr>
                                 @endif
@@ -194,16 +194,17 @@
                                         {{ Form::submit('QR', array('class' => 'btn btn-primary')) }}
                                         {{ Form::close() }}
                                     </td>
-                                    @if (Auth::user()->getRol()=='professor')
+
                                     <td>
-                                        {{ Form::open(array('url' => 'editprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ Form::open(array('url' => 'editprod406/' . $item->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                         {{ Form::hidden('_method', 'GET') }}
                                         {{ Form::submit('Edita', array('class' => 'btn btn-primary')) }}
                                         {{ Form::close() }}
                                     </td>
+                                    @if (Auth::user()->getRol()=='professor')
                                     <td>
-                                        {{ Form::open(array('url' => 'deleteprod/' . $item->id, 'class' => 'pull-right')) }}
+                                        {{ Form::open(array('url' => 'deleteprod406/' . $item->id, 'class' => 'pull-right')) }}
                                         {{ csrf_field() }}
                                             {{ Form::hidden('_method', 'DELETE') }}
                                             {{ Form::submit('Elimina', array('class' => 'btn btn-primary')) }}
@@ -213,9 +214,6 @@
                                 </tr>
                             @endforeach
                         </table>
-
-                        <!--?php dump($material) ?-->
-
                     </div>
                 </div>
             </div>
